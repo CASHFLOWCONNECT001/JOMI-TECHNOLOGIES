@@ -142,7 +142,7 @@ export default function TrainingPage() {
           </Reveal>
         </SectionWrapper>
 
-        {/* ---------- CATEGORY SECTIONS WITH 2-COLUMN GRID ---------- */}
+        {/* ---------- CATEGORY SECTIONS ---------- */}
         {TRAINING_CATEGORIES.map((category, ci) => {
           const units = TRAINING_UNITS.filter((u) => u.category === category);
           if (units.length === 0) return null;
@@ -158,7 +158,7 @@ export default function TrainingPage() {
                 </h2>
               </Reveal>
 
-              <div className="mt-10 grid gap-12 min-[901px]:grid-cols-2 min-[901px]:gap-[60px]">
+              <div className="mt-10 space-y-16">
                 {units.map((unit, i) => (
                   <VideoRow
                     key={unit.slug}

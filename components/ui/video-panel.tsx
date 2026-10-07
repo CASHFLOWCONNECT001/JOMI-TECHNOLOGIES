@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type VideoPanelProps = {
   src: string;
@@ -20,65 +20,84 @@ export function VideoPanel({
   className = "",
 }: VideoPanelProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [hovering, setHovering] = useState(false);
   const [ready, setReady] = useState(false);
 
-  function play() {
-    setHovering(true);
-    videoRef.current?.play().catch(() => {});
-  }
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
 
-  function pause() {
-    setHovering(false);
-    videoRef.current?.pause();
-  }
+    // Try to autoplay as soon as the component mounts
+    const tryPlay = () => {
+      video.play().catch(() => {
+        // Browser blocked autoplay — will retry when scrolled into view
+      });
+    };
+
+    tryPlay();
+
+    // Play when the panel enters the viewport, pause when it leaves
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
 
   const hue2 = (hue + 30) % 360;
 
   return (
     <div
-      className={`group/video relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-card)] border border-foreground/15 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.25)] transition-all duration-500 min-[901px]:aspect-[16/11] ${className}`}
-      onMouseEnter={play}
-      onMouseLeave={pause}
-      onTouchStart={play}
+      className={`group/video relative aspect-[4/3] w-full overflow-hidden rounded-[18px] border border-foreground/15 bg-[#0B1220] shadow-[0_8px_30px_-12px_rgba(0,0,0,0.25)] transition-all duration-500 min-[901px]:aspect-[16/11] min-[901px]:rounded-[22px] ${className}`}
     >
-      {/* Fallback gradient with icon — shown always underneath */}
+      {/* Fallback gradient with icon — always underneath */}
       <div
         aria-hidden
-        className="absolute inset-0 flex items-center justify-center"
+        className="absolute inset-0 z-[1] flex items-center justify-center"
         style={{
           background: `linear-gradient(135deg, hsl(${hue} 60% 22%), hsl(${hue2} 60% 14%))`,
         }}
       >
         <div
-          className="flex h-24 w-24 items-center justify-center rounded-3xl text-[color:#001026] transition-transform duration-500 group-hover/video:scale-105"
+          className="flex h-20 w-20 items-center justify-center rounded-[20px] text-[color:#001026] transition-transform duration-500 group-hover/video:scale-105 min-[641px]:h-24 min-[641px]:w-24 min-[641px]:rounded-3xl"
           style={{
             background: `linear-gradient(135deg, hsl(${hue} 78% 58%), hsl(${hue2} 78% 64%))`,
             boxShadow: `0 20px 48px -18px hsl(${hue} 80% 55% / 0.85)`,
           }}
         >
-          <div className="h-12 w-12">{icon}</div>
+          <div className="h-10 w-10 min-[641px]:h-12 min-[641px]:w-12">
+            {icon}
+          </div>
         </div>
       </div>
 
       {/* Optional poster image (higher priority than gradient) */}
       {poster ? (
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          aria-hidden
+          className="absolute inset-0 z-[2] bg-cover bg-center"
           style={{ backgroundImage: `url(${poster})` }}
         />
       ) : null}
 
-      {/* Video — plays on hover */}
+      {/* Video — autoplays muted and loops */}
       <video
         ref={videoRef}
         muted
         loop
         playsInline
-        preload="none"
+        autoPlay
+        preload="auto"
         poster={poster}
         onCanPlay={() => setReady(true)}
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+        className={`absolute inset-0 z-[3] h-full w-full object-cover transition-opacity duration-700 ${
           ready ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -86,44 +105,27 @@ export function VideoPanel({
         <source src={src} type="video/mp4" />
       </video>
 
-      {/* Play indicator — grey dot when idle, green pulsing dot on hover */}
+      {/* Static status chip — bottom-left */}
       <div
-        className={`pointer-events-none absolute bottom-3 left-3 flex items-center gap-2 rounded-full border px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] backdrop-blur-md transition-all duration-300 ${
-          hovering
-            ? "border-emerald-400/40 bg-emerald-950/60 text-emerald-100"
-            : "border-white/20 bg-black/50 text-white/90"
-        }`}
+        aria-hidden
+        className="pointer-events-none absolute bottom-3 left-3 z-[4] flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-950/60 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-100 backdrop-blur-md"
+        style={{ lineHeight: 1 }}
       >
-        <span
-          aria-hidden
-          className={`relative flex h-2 w-2 items-center justify-center ${
-            hovering ? "" : ""
-          }`}
-        >
-          <span
-            className={`absolute inline-flex h-full w-full rounded-full ${
-              hovering
-                ? "animate-ping bg-emerald-400 opacity-75"
-                : "bg-white/50"
-            }`}
-          />
-          <span
-            className={`relative inline-flex h-2 w-2 rounded-full ${
-              hovering ? "bg-emerald-400" : "bg-white/70"
-            }`}
-          />
+        <span className="relative flex h-2 w-2 items-center justify-center">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
         </span>
-        {hovering ? "Now Playing" : "Hover to Play"}
+        <span>Now Playing</span>
       </div>
 
-      {/* Triangle accent */}
+      {/* Triangle accent — corner */}
       <svg
         aria-hidden
         viewBox="0 0 100 100"
-        className={`pointer-events-none absolute top-0 h-14 w-14 transition-transform duration-500 group-hover/video:scale-110 ${
+        className={`pointer-events-none absolute top-0 z-[4] h-11 w-11 transition-transform duration-500 min-[641px]:h-14 min-[641px]:w-14 ${
           direction === "right"
-            ? "right-0 rotate-90"
-            : "left-0 -rotate-90"
+            ? "right-0 rotate-90 group-hover/video:scale-110"
+            : "left-0 -rotate-90 group-hover/video:scale-110"
         }`}
         style={{
           color: `hsl(${hue} 85% 60%)`,

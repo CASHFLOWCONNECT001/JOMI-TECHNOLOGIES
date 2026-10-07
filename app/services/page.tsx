@@ -225,7 +225,7 @@ export default function Page() {
             </p>
           </Reveal>
 
-          <div className="mt-10 grid gap-12 min-[901px]:grid-cols-2 min-[901px]:gap-[60px]">
+          <div className="mt-10 space-y-16">
             {TRAINING_UNITS.slice(0, 6).map((unit, i) => (
               <VideoRow
                 key={unit.slug}
@@ -280,7 +280,7 @@ export default function Page() {
             </p>
           </Reveal>
 
-          <div className="mt-10 grid gap-12 min-[901px]:grid-cols-2 min-[901px]:gap-[60px]">
+          <div className="mt-10 space-y-16">
             {SOFTWARE_SERVICES.map((s, i) => (
               <VideoRow
                 key={s.slug}

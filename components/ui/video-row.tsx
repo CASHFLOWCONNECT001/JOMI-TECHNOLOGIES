@@ -44,7 +44,7 @@ export function VideoRow({
   return (
     <Reveal from="up" duration={800}>
       <div
-        className="mx-auto grid w-full max-w-[1200px] items-center gap-8 px-5 md:gap-10 min-[901px]:grid-cols-2 min-[901px]:gap-[60px]"
+        className="mx-auto grid w-full max-w-[1200px] items-center gap-6 px-5 min-[901px]:grid-cols-2 min-[901px]:gap-[60px]"
         style={{ "--hue": hue } as React.CSSProperties}
       >
         {/* Video side */}
@@ -73,47 +73,46 @@ export function VideoRow({
             {number ? (
               <span
                 aria-hidden
-                className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-sm font-bold shadow-lg"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-xs font-bold"
                 style={{
-                  background: `linear-gradient(135deg, hsl(${hue} 78% 58%), hsl(${hue2} 78% 64%))`,
-                  color: "#001026",
-                  boxShadow: `0 8px 22px -10px hsl(${hue} 80% 55% / 0.75)`,
+                  background: `hsl(${hue} 70% 55% / 0.15)`,
+                  color: `hsl(${hue} 70% 45%)`,
                 }}
               >
                 {number}
               </span>
             ) : null}
             <p
-              className="text-xs font-semibold uppercase tracking-[0.16em]"
-              style={{ color: `hsl(${hue} 78% 58%)` }}
+              className="text-[11px] font-bold uppercase tracking-[0.18em]"
+              style={{ color: `hsl(${hue} 70% 45%)` }}
             >
               {eyebrow}
             </p>
           </div>
 
           {/* Title */}
-          <h3 className="mt-4 text-2xl font-bold leading-[1.1] tracking-tight md:text-4xl">
+          <h3 className="mt-3 text-2xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-[34px]">
             {title}
           </h3>
 
           {/* Meta */}
           {meta ? (
             <p
-              className="mt-2 text-sm font-semibold"
-              style={{ color: `hsl(${hue} 70% 55%)` }}
+              className="mt-1.5 text-sm font-semibold"
+              style={{ color: `hsl(${hue} 70% 45%)` }}
             >
               {meta}
             </p>
           ) : null}
 
           {/* Description */}
-          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-foreground/82 md:text-base md:leading-[1.75]">
+          <p className="mt-4 max-w-2xl text-sm leading-[1.7] text-foreground/80 md:text-[15px]">
             {description}
           </p>
 
           {/* Summary feature bullets — two columns */}
           {summaryFeatures && summaryFeatures.length > 0 ? (
-            <ul className="mt-6 grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2">
+            <ul className="mt-5 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
               {summaryFeatures.map((item) => (
                 <li
                   key={item}
@@ -146,7 +145,7 @@ export function VideoRow({
           ) : null}
 
           {/* Dual CTAs */}
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <Link
               href={ctaHref}
               className="inline-flex items-center gap-2 rounded-[var(--radius-cta)] px-5 py-2.5 text-sm font-semibold shadow-lg transition-all hover:-translate-y-0.5"
