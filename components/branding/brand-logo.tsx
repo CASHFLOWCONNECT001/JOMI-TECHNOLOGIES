@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -21,10 +21,10 @@ type BrandLogoProps = {
 };
 
 export function BrandLogo({
-  className = "h-10 w-10",
+  className = "h-10 w-auto",
   priority = false,
   href = "/",
-  circular = true,
+  circular = false,
   label,
   labelClassName,
 }: BrandLogoProps) {
@@ -48,7 +48,6 @@ export function BrandLogo({
           .join(" ")}
       >
         {failed ? (
-          // Fallback when no image loads: initials on brand gradient
           <span
             aria-hidden
             className="flex h-full w-full items-center justify-center text-[clamp(0.7rem,2.4vw,1rem)] font-bold tracking-wider text-[#001026]"
@@ -57,15 +56,15 @@ export function BrandLogo({
                 "linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-cyan))",
             }}
           >
-            JTI
+            TST
           </span>
         ) : (
           <Image
             src={src}
-            alt="JOMI TECHNOLOGIES INSTITUTE logo"
-            width={512}
-            height={341}
-            sizes="(max-width: 768px) 96px, 112px"
+            alt="TechSwiftTrix Agency logo"
+            width={160}
+            height={40}
+            sizes="160px"
             priority={priority}
             quality={85}
             onError={() => {
@@ -76,7 +75,7 @@ export function BrandLogo({
               });
             }}
             className={[
-              "h-full w-full object-center",
+              "h-full w-auto object-center", // <--- Changed to w-auto
               circular ? "object-cover" : "object-contain",
             ].join(" ")}
           />

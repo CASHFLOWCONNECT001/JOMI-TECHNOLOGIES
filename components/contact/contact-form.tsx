@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 
@@ -359,7 +359,7 @@ const initialState: FormState = {
 function buildWhatsAppMessage(data: FormState, selections: Selection[]): string {
   const lines: string[] = [];
 
-  lines.push("*NEW INQUIRY — JOMI TECHNOLOGIES INSTITUTE*");
+  lines.push("*NEW INQUIRY — TechSwiftTrix Agency*");
   lines.push("━━━━━━━━━━━━━━━━━━━━━━━━");
   lines.push("");
 

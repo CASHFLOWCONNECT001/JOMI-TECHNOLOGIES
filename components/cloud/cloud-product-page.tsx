@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 
 import { RouteBreadcrumbs } from "@/components/navigation/route-breadcrumbs";
 import { ButtonLink } from "@/components/ui/button";
@@ -31,7 +31,7 @@ export function CloudProductPage({
           <div className="grid gap-5 md:grid-cols-[1.1fr_1fr] md:items-center">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-aqua)]">
-                JOMI TECHNOLOGIES INSTITUTE Cloud
+                TechSwiftTrix Agency Cloud
               </p>
               <h1 className="mt-2 text-3xl font-bold md:text-4xl">{name}</h1>
               <p className="mt-3 text-lg text-foreground/90">{heroText}</p>

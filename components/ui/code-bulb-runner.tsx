@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -26,7 +26,7 @@ const services: Record<string, Status> = {
   mailer: "warning",
 };
 
-console.log("JOMI TECHNOLOGIES INSTITUTE — service check");
+console.log("TechSwiftTrix Agency — service check");
 console.log(services);
 console.log("Active systems:", Object.keys(services).length);`,
     steps: [

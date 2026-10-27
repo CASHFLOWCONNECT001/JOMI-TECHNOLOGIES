@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 
 import { RouteBreadcrumbs } from "@/components/navigation/route-breadcrumbs";
@@ -14,10 +14,10 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = createPageMetadata({
   title: "Portfolio",
   description:
-    "Explore JOMI TECHNOLOGIES INSTITUTE flagships — CashFlowHubs, NetOppsTrix, JOMI Mall, and SepiSwift — plus selected client work across ERP, CRM, POS, school systems, LMS platforms, and custom web and mobile applications.",
+    "Explore TechSwiftTrix Agency flagships — CashFlowHubs, NetOppsTrix, JOMI Mall, and SepiSwift — plus selected client work across ERP, CRM, POS, school systems, LMS platforms, and custom web and mobile applications.",
   path: "/portfolio",
   keywords: [
-    "JOMI TECHNOLOGIES INSTITUTE portfolio",
+    "TechSwiftTrix Agency portfolio",
     "flagship products",
     "CashFlowHubs",
     "NetOppsTrix",
@@ -324,7 +324,7 @@ export default function PortfolioPage() {
 
           <Reveal from="up" delay={180} duration={900}>
             <p className="mt-4 max-w-3xl text-sm text-foreground/84 md:text-base">
-              A sharper view of what JOMI TECHNOLOGIES INSTITUTE actually ships
+              A sharper view of what TechSwiftTrix Agency actually ships
               — our own flagship products running in production today, plus
               selected client engagements across ERP, CRM, POS, e-commerce,
               school systems, LMS platforms, and custom web and mobile
@@ -396,7 +396,7 @@ export default function PortfolioPage() {
               Products we designed, built, and run.
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-foreground/82 md:text-base">
-              Beyond client work and training, JOMI TECHNOLOGIES INSTITUTE
+              Beyond client work and training, TechSwiftTrix Agency
               builds its own software. Each flagship below was engineered from
               scratch, deployed to production, and is available today — and
               every one is fully customizable for your organization.

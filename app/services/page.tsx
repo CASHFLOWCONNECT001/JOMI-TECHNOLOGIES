@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Container } from "@/components/ui/container";
@@ -13,10 +13,10 @@ import { TRAINING_UNITS } from "@/lib/training";
 export const metadata: Metadata = createPageMetadata({
   title: "Services",
   description:
-    "Explore JOMI TECHNOLOGIES INSTITUTE services — ICT training in computer basics, Microsoft Office, programming, databases, networking, and self-employment skills, plus software and systems including ERP, CRM, e-commerce websites, POS, school management, LMS platforms, and custom web and mobile apps.",
+    "Explore TechSwiftTrix Agency services — ICT training in computer basics, Microsoft Office, programming, databases, networking, and self-employment skills, plus software and systems including ERP, CRM, e-commerce websites, POS, school management, LMS platforms, and custom web and mobile apps.",
   path: "/services",
   keywords: [
-    "JOMI TECHNOLOGIES INSTITUTE services",
+    "TechSwiftTrix Agency services",
     "ICT training services",
     "computer training",
     "programming training",
@@ -184,7 +184,7 @@ export default function Page() {
           </Reveal>
           <Reveal from="up" delay={180} duration={900}>
             <p className="mt-3 max-w-3xl text-foreground/82">
-              JOMI TECHNOLOGIES INSTITUTE operates as both a computer and
+              TechSwiftTrix Agency operates as both a computer and
               digital skills training institution and a software and systems
               provider. We deliver practical, accessible, and relevant
               technology education — with self-employment paths built into

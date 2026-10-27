@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -27,12 +27,12 @@ export async function generateMetadata({
     return createPageMetadata({
       title: "Course",
       description:
-        "Explore ICT training programmes from JOMI TECHNOLOGIES INSTITUTE — computer basics, Microsoft Office, programming, databases, networking, graphic design, digital marketing, and self-employment skills.",
+        "Explore ICT training programmes from TechSwiftTrix Agency — computer basics, Microsoft Office, programming, databases, networking, graphic design, digital marketing, and self-employment skills.",
       path: `/training/${slug}`,
       keywords: [
         "ICT training",
         "computer course",
-        "JOMI TECHNOLOGIES INSTITUTE training",
+        "TechSwiftTrix Agency training",
         "self-employment skills",
       ],
     });
@@ -45,7 +45,7 @@ export async function generateMetadata({
     keywords: [
       unit.title,
       unit.short,
-      "JOMI TECHNOLOGIES INSTITUTE training",
+      "TechSwiftTrix Agency training",
       ...unit.outcomes.slice(0, 4),
     ],
   });

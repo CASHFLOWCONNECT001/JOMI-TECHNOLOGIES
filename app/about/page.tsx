@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 
 import { BrandLogo } from "@/components/branding/brand-logo";
@@ -12,10 +12,10 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = createPageMetadata({
   title: "About",
   description:
-    "JOMI TECHNOLOGIES INSTITUTE is a computer and digital skills training institution and software systems provider. We equip learners with practical ICT skills and build enterprise-grade software — ERP, CRM, e-commerce, POS, school systems, LMS, and custom web and mobile apps.",
+    "TechSwiftTrix Agency is a computer and digital skills training institution and software systems provider. We equip learners with practical ICT skills and build enterprise-grade software — ERP, CRM, e-commerce, POS, school systems, LMS, and custom web and mobile apps.",
   path: "/about",
   keywords: [
-    "about JOMI TECHNOLOGIES INSTITUTE",
+    "about TechSwiftTrix Agency",
     "ICT training institution",
     "software and systems provider",
     "computer training",
@@ -155,14 +155,14 @@ export default function Page() {
 
               <div className="hidden md:block">
                 <Reveal from="scale" delay={150}>
-                  <BrandLogo className="h-24 w-24 md:h-28 md:w-28" circular />
+                  <BrandLogo className="h-16 w-auto md:h-20" />
                 </Reveal>
               </div>
             </div>
 
             <Reveal from="up" delay={200} duration={900}>
               <p className="mt-4 max-w-3xl text-sm text-foreground/84 md:text-base">
-                <strong>JOMI TECHNOLOGIES INSTITUTE</strong> is a computer and
+                <strong>TechSwiftTrix Agency</strong> is a computer and
                 digital skills training institution and a software and systems
                 provider, dedicated to equipping learners and businesses with
                 practical knowledge and essential technology skills for
@@ -182,7 +182,7 @@ export default function Page() {
 
             <div className="mt-4 flex justify-center md:hidden">
               <Reveal from="scale" delay={100}>
-                <BrandLogo className="h-24 w-24" circular />
+                <BrandLogo className="h-16 w-auto" />
               </Reveal>
             </div>
           </div>
@@ -248,7 +248,7 @@ export default function Page() {
               Two arms, one institute
             </h2>
             <p className="mt-2 max-w-3xl text-sm text-foreground/84 md:text-base">
-              JOMI TECHNOLOGIES INSTITUTE operates across two complementary
+              TechSwiftTrix Agency operates across two complementary
               tracks — and supports both long after the first delivery.
             </p>
           </Reveal>

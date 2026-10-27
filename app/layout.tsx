@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Sora } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -25,16 +25,16 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jomitechnologiesinstitute.com"),
+  metadataBase: new URL("https://www.techswifttrix.com"),
   title: {
     default:
-      "JOMI TECHNOLOGIES INSTITUTE | ICT Training, Software & Systems",
-    template: "%s | JOMI TECHNOLOGIES INSTITUTE",
+      "TechSwiftTrix Agency | ICT Training, Software & Systems",
+    template: "%s | TechSwiftTrix Agency",
   },
   description:
-    "JOMI TECHNOLOGIES INSTITUTE is a computer and digital skills training institution and software systems provider. We deliver practical ICT training — computer basics, Microsoft Office, typing, internet and email, digital literacy and essential ICT skills — alongside ERP, CRM, e-commerce websites, POS, school management systems, LMS platforms, and custom web and mobile applications for businesses and organizations.",
+    "TechSwiftTrix Agency is a computer and digital skills training institution and software systems provider. We deliver practical ICT training — computer basics, Microsoft Office, typing, internet and email, digital literacy and essential ICT skills — alongside ERP, CRM, e-commerce websites, POS, school management systems, LMS platforms, and custom web and mobile applications for businesses and organizations.",
   keywords: [
-    "JOMI TECHNOLOGIES INSTITUTE",
+    "TechSwiftTrix Agency",
     "ICT training institute",
     "computer training",
     "computer basics",
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
     "mobile app development",
     "digital solutions",
   ],
-  authors: [{ name: "JOMI TECHNOLOGIES INSTITUTE" }],
-  creator: "JOMI TECHNOLOGIES INSTITUTE",
-  publisher: "JOMI TECHNOLOGIES INSTITUTE",
+  authors: [{ name: "TechSwiftTrix Agency" }],
+  creator: "TechSwiftTrix Agency",
+  publisher: "TechSwiftTrix Agency",
   robots: {
     index: true,
     follow: true,
@@ -83,17 +83,17 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "JOMI TECHNOLOGIES INSTITUTE | ICT Training, Software & Systems",
+      "TechSwiftTrix Agency | ICT Training, Software & Systems",
     description:
       "Practical ICT training and modern software systems — computer packages, Microsoft Office, digital literacy, ERP, CRM, e-commerce, POS, school systems, LMS platforms, and custom web and mobile apps for learners, businesses, and organizations.",
-    url: "https://jomitechnologiesinstitute.com",
-    siteName: "JOMI TECHNOLOGIES INSTITUTE",
+    url: "https://www.techswifttrix.com",
+    siteName: "TechSwiftTrix Agency",
     images: [
       {
         url: "/assets/logo.jpeg",
         width: 1200,
         height: 630,
-        alt: "JOMI TECHNOLOGIES INSTITUTE official brand logo",
+        alt: "TechSwiftTrix Agency official brand logo",
       },
     ],
     locale: "en_US",
@@ -102,7 +102,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "JOMI TECHNOLOGIES INSTITUTE | ICT Training, Software & Systems",
+      "TechSwiftTrix Agency | ICT Training, Software & Systems",
     description:
       "Practical ICT training and modern software systems — computer packages, Microsoft Office, ERP, CRM, e-commerce, POS, school systems, LMS platforms, and custom web and mobile apps.",
     images: ["/assets/logo.jpeg"],

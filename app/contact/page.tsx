@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 import { ContactForm } from "@/components/contact/contact-form";
 import { Container } from "@/components/ui/container";
@@ -9,10 +9,10 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = createPageMetadata({
   title: "Contact",
   description:
-    "Contact JOMI TECHNOLOGIES INSTITUTE for ICT training enrollment, software and systems inquiries, ERP, CRM, e-commerce, POS, school management, and custom web or mobile project consultations. Messages reach us directly on WhatsApp.",
+    "Contact TechSwiftTrix Agency for ICT training enrollment, software and systems inquiries, ERP, CRM, e-commerce, POS, school management, and custom web or mobile project consultations. Messages reach us directly on WhatsApp.",
   path: "/contact",
   keywords: [
-    "contact JOMI TECHNOLOGIES INSTITUTE",
+    "contact TechSwiftTrix Agency",
     "ICT training enrollment",
     "computer course registration",
     "software project inquiry",
@@ -36,7 +36,7 @@ export default function ContactPage() {
             Contact
           </p>
           <h1 className="mt-2 text-3xl font-bold md:text-4xl">
-            Contact JOMI TECHNOLOGIES INSTITUTE
+            Contact TechSwiftTrix Agency
           </h1>
           <p className="mt-3 max-w-3xl text-foreground/82">
             Book a discovery session, enroll in a training program, or start a
@@ -48,7 +48,7 @@ export default function ContactPage() {
           <div className="mt-5 flex flex-wrap gap-2">
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                "Hello JOMI TECHNOLOGIES INSTITUTE, I would like to inquire about your services."
+                "Hello TechSwiftTrix Agency, I would like to inquire about your services."
               )}`}
               target="_blank"
               rel="noopener noreferrer"

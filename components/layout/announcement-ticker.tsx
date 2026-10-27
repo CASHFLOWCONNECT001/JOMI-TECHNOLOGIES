@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 const MESSAGES = [
-  "JOMI TECHNOLOGIES INSTITUTE — ICT training and software systems under one roof.",
+  "TechSwiftTrix Agency — ICT training and software systems under one roof.",
   "We train in computer basics, Microsoft Office, programming, databases, and networking — with real self-employment paths.",
   "We build ERP, CRM, e-commerce, POS, school LMS, and custom web and mobile systems for businesses across Africa.",
   "One institute. Two arms. Training that builds people, software that builds businesses.",
@@ -11,7 +11,7 @@ const MESSAGES = [
 
 export function AnnouncementTicker() {
   return (
-    <div className="announcement-ticker" role="region" aria-label="About JOMI TECHNOLOGIES INSTITUTE">
+    <div className="announcement-ticker" role="region" aria-label="About TechSwiftTrix Agency">
       {/* LED indicator */}
       <span aria-hidden className="ticker-led" />
 

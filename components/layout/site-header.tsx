@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -19,7 +19,7 @@ const topNavItems = [
 ];
 
 const TICKER_MESSAGES = [
-  "JOMI TECHNOLOGIES INSTITUTE — ICT training and software systems under one roof.",
+  "TechSwiftTrix Agency — ICT training and software systems under one roof.",
   "We train in computer basics, Microsoft Office, programming, databases, and networking — with real self-employment paths.",
   "We build ERP, CRM, e-commerce, POS, school, LMS, and custom web and mobile systems for businesses across Africa.",
   "One institute. Two arms. Training that builds people, software that builds businesses.",
@@ -131,19 +131,10 @@ export function SiteHeader() {
               />
             </button>
 
+            {/* Logo — text is baked into the image, so no `label` prop needed */}
             <BrandLogo
               priority
-              className="h-10 w-10 md:h-11 md:w-11"
-              label={
-                <span className="hidden sm:flex flex-col leading-tight">
-                  <span className="text-sm font-semibold tracking-[0.06em] text-foreground">
-                    JOMI TECHNOLOGIES INSTITUTE
-                  </span>
-                  <span className="mt-0.5 text-[10px] uppercase tracking-[0.12em] text-[var(--foreground)]/72">
-                    ICT Training · Software · Systems
-                  </span>
-                </span>
-              }
+              className="h-10 w-auto md:h-11"
             />
           </div>
 
@@ -177,7 +168,7 @@ export function SiteHeader() {
       <div
         className="announcement-ticker"
         role="region"
-        aria-label="About JOMI TECHNOLOGIES INSTITUTE"
+        aria-label="About TechSwiftTrix Agency"
       >
         <span aria-hidden className="ticker-led" />
 

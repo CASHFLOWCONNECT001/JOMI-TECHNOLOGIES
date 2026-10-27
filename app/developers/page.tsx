@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 import { Container } from "@/components/ui/container";
 import { CtaSection } from "@/components/ui/cta-section";
@@ -14,10 +14,10 @@ import { ResourceLibraryFilter } from "./resource-library-filter";
 export const metadata: Metadata = createPageMetadata({
   title: "Developers",
   description:
-    "Explore JOMI TECHNOLOGIES INSTITUTE developer resources, API integration patterns, and clear implementation guidance. Interactive code examples with live execution for ERP, CRM, e-commerce, training systems, and custom software.",
+    "Explore TechSwiftTrix Agency developer resources, API integration patterns, and clear implementation guidance. Interactive code examples with live execution for ERP, CRM, e-commerce, training systems, and custom software.",
   path: "/developers",
   keywords: [
-    "JOMI TECHNOLOGIES INSTITUTE developers",
+    "TechSwiftTrix Agency developers",
     "developer resources",
     "api integration guide",
     "software implementation support",
@@ -77,7 +77,7 @@ export default async function DevelopersPage() {
           </h1>
           <p className="mt-3 max-w-3xl text-foreground/82">
             Structured developer resources for engineering teams integrating
-            with JOMI TECHNOLOGIES INSTITUTE. This page is organized to
+            with TechSwiftTrix Agency. This page is organized to
             strengthen technical authority, accelerate integrations, and
             support delivery partnerships across ERP, CRM, e-commerce, training
             systems, and custom software.
@@ -119,8 +119,7 @@ export default async function DevelopersPage() {
               </p>
             </div>
             <p className="mt-2 max-w-3xl text-sm text-foreground/82">
-              Each example demonstrates a real pattern used in JOMI TECHNOLOGIES
-              INSTITUTE projects — service checks, ERP totals, CRM lead scoring,
+              Each example demonstrates a real pattern used in TechSwiftTrix Agency projects — service checks, ERP totals, CRM lead scoring,
               training enrolment, and e-commerce checkout. Watch the bulb light
               up on successful execution.
             </p>

@@ -1,6 +1,5 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
-import { BackgroundVideo } from "@/components/ui/background-video";
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
@@ -8,15 +7,16 @@ import { CtaSection } from "@/components/ui/cta-section";
 import { SectionWrapper } from "@/components/ui/section-wrapper";
 import { createPageMetadata } from "@/lib/seo";
 import { AfricaBackground } from "@/components/ui/africa-background";
+import { HeroCarousel } from "@/components/ui/hero-carousel";
 import { getPublicCompanyStats } from "@/lib/api";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "JOMI TECHNOLOGIES INSTITUTE — ICT Training & Software Systems",
+  title: "TechSwiftTrix Agency — ICT Training & Software Systems",
   description:
-    "JOMI TECHNOLOGIES INSTITUTE is a computer and digital skills training institution and software systems provider. We offer training in computer basics, computer packages, Microsoft Office applications, typing, internet and email use, digital literacy and essential ICT skills — plus ERP, CRM, e-commerce websites, POS, school management systems, LMS platforms, and custom software for businesses.",
+    "TechSwiftTrix Agency is a computer and digital skills training institution and software systems provider. We offer training in computer basics, computer packages, Microsoft Office applications, typing, internet and email use, digital literacy and essential ICT skills — plus ERP, CRM, e-commerce websites, POS, school management systems, LMS platforms, and custom software for businesses.",
   path: "/",
   keywords: [
-    "JOMI TECHNOLOGIES INSTITUTE",
+    "TechSwiftTrix Agency",
     "ICT training institute",
     "computer training",
     "computer packages",
@@ -42,6 +42,14 @@ export const metadata: Metadata = createPageMetadata({
 /* -------------------------------------------------------------------------- */
 /*  DATA                                                                      */
 /* -------------------------------------------------------------------------- */
+
+const heroSlides = [
+  { src: "/images/hero/1.jpg", alt: "TechSwiftTrix Agency — training session" },
+  { src: "/images/hero/2.jpg", alt: "TechSwiftTrix Agency — computer lab" },
+  { src: "/images/hero/3.jpg", alt: "TechSwiftTrix Agency — software demo" },
+  { src: "/images/hero/4.jpg", alt: "TechSwiftTrix Agency — student practice" },
+  { src: "/images/hero/5.jpg", alt: "TechSwiftTrix Agency — team at work" },
+];
 
 const trainingPrograms = [
   {
@@ -125,8 +133,7 @@ const softwareProcess = [
   },
   {
     title: "Scale",
-    description:
-      "Optimize performance, growth loops, and operational continuity.",
+    description: "Optimize performance, growth loops, and operational continuity.",
   },
 ];
 
@@ -196,147 +203,110 @@ export default async function Home() {
     <AfricaBackground>
       <Container className="space-y-5 !pb-0">
         {/* ---------------------------------------------------------------- */}
-        {/* HERO WITH FULLY VISIBLE VIDEO                                     */}
+        {/* HERO — CAROUSEL → 3 CARDS → 3 BUTTONS → STATS                    */}
         {/* ---------------------------------------------------------------- */}
         <SectionWrapper className="home-glass relative overflow-hidden">
-          <BackgroundVideo
-            src="/videos/home-hero.mp4"
-            poster="/images/home-hero-poster.jpg"
-            overlay={0}
-          />
-
           <div className="relative z-10">
-            <div className="grid gap-5 lg:grid-cols-[1.35fr_0.9fr] lg:items-start">
-              <div>
-                <p
-                  className="inline-flex rounded-full border border-white/40 bg-black/25 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm"
-                  style={{ textShadow: "0 1px 3px rgba(0,0,0,0.7)" }}
-                >
-                  Training • Software • Systems
+            {/* 1. Image carousel */}
+            <HeroCarousel slides={heroSlides} />
+
+            {/* 2. Three hero cards — directly below the images */}
+            <div className="mt-5 grid gap-3 md:grid-cols-3">
+              <Card className="border border-white/30 border-l-4 border-l-[var(--color-brand-blue)] !bg-white shadow-xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-brand-blue)]">
+                  Training Institute
                 </p>
+                <p className="mt-2 text-lg font-semibold text-[#06153A]">
+                  Computer &amp; Digital Skills
+                </p>
+                <p className="mt-2 text-sm text-[#06153A]/75">
+                  Computer basics, Microsoft Office, typing, internet and email,
+                  digital literacy, and essential ICT skills.
+                </p>
+              </Card>
 
-                <h1
-                  className="mt-4 text-3xl font-extrabold leading-tight text-white md:text-5xl"
-                  style={{ textShadow: "0 2px 8px rgba(0,0,0,0.75)" }}
-                >
-                  Practical ICT training and modern software systems — for
-                  learners, businesses, and institutions.
-                </h1>
+              <Card className="border border-white/30 border-l-4 border-l-[var(--color-brand-blue)] !bg-white shadow-xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-brand-blue)]">
+                  Software &amp; Systems
+                </p>
+                <p className="mt-2 text-lg font-semibold text-[#06153A]">
+                  ERP • CRM • E-commerce
+                </p>
+                <p className="mt-2 text-sm text-[#06153A]/75">
+                  POS, school and LMS platforms, custom web and mobile apps,
+                  hosting and IT support.
+                </p>
+              </Card>
 
-                {/* Description in a white card */}
-                <div className="mt-4 max-w-3xl rounded-2xl border border-white/30 bg-white p-5 shadow-xl">
-                  <p className="text-sm text-[#06153A] md:text-base">
-                    <strong className="font-semibold">
-                      JOMI TECHNOLOGIES INSTITUTE
-                    </strong>{" "}
-                    is a computer and digital skills training institution and
-                    software systems provider. We equip learners with essential
-                    technology skills — and build the software that powers
-                    modern organizations: ERP, CRM, e-commerce websites, POS,
-                    school management systems, LMS platforms, and custom web
-                    and mobile applications.
-                  </p>
-                </div>
-
-                {/* Bright buttons — matching shape, different colours */}
-                <div className="mt-5 flex flex-wrap gap-2">
-                  <ButtonLink
-                    href="/training"
-                    className="!rounded-[var(--radius-cta)] !border !border-[#7BEA24] !bg-[#7BEA24] !px-4 !py-2 !text-sm !font-bold !text-[#06153A] !no-underline shadow-lg transition hover:!border-[#D8F51A] hover:!bg-[#D8F51A]"
-                  >
-                    Explore Training
-                  </ButtonLink>
-                  <ButtonLink
-                    href="/services"
-                    className="!rounded-[var(--radius-cta)] !border !border-[#2ED8F3] !bg-[#2ED8F3] !px-4 !py-2 !text-sm !font-bold !text-[#06153A] !no-underline shadow-lg transition hover:!border-[#6CEEF5] hover:!bg-[#6CEEF5]"
-                  >
-                    See Software Solutions
-                  </ButtonLink>
-                  <ButtonLink
-                    href="/contact"
-                    className="!rounded-[var(--radius-cta)] !border !border-[#D8F51A] !bg-[#D8F51A] !px-4 !py-2 !text-sm !font-bold !text-[#06153A] !no-underline shadow-lg transition hover:!border-[#7BEA24] hover:!bg-[#7BEA24]"
-                  >
-                    Talk to Us
-                  </ButtonLink>
-                </div>
-              </div>
-
-              {/* 3 hero cards — SOLID WHITE with dark text */}
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-                <Card className="border border-white/30 border-l-4 border-l-[var(--color-brand-blue)] !bg-white shadow-xl">
-                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-brand-blue)]">
-                    Training Institute
-                  </p>
-                  <p className="mt-2 text-lg font-semibold text-[#06153A]">
-                    Computer & Digital Skills
-                  </p>
-                  <p className="mt-2 text-sm text-[#06153A]/75">
-                    Computer basics, Microsoft Office, typing, internet and
-                    email, digital literacy, and essential ICT skills.
-                  </p>
-                </Card>
-
-                <Card className="border border-white/30 border-l-4 border-l-[var(--color-brand-blue)] !bg-white shadow-xl">
-                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-brand-blue)]">
-                    Software & Systems
-                  </p>
-                  <p className="mt-2 text-lg font-semibold text-[#06153A]">
-                    ERP • CRM • E-commerce
-                  </p>
-                  <p className="mt-2 text-sm text-[#06153A]/75">
-                    POS, school and LMS platforms, custom web and mobile apps,
-                    hosting and IT support.
-                  </p>
-                </Card>
-
-                <Card className="border border-white/30 border-l-4 border-l-[var(--color-brand-blue)] !bg-white shadow-xl">
-                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-brand-blue)]">
-                    For Everyone
-                  </p>
-                  <p className="mt-2 text-lg font-semibold text-[#06153A]">
-                    Learners to Enterprises
-                  </p>
-                  <p className="mt-2 text-sm text-[#06153A]/75">
-                    Students, professionals, entrepreneurs, businesses, and
-                    organizations building digital capability.
-                  </p>
-                </Card>
-              </div>
+              <Card className="border border-white/30 border-l-4 border-l-[var(--color-brand-blue)] !bg-white shadow-xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-brand-blue)]">
+                  For Everyone
+                </p>
+                <p className="mt-2 text-lg font-semibold text-[#06153A]">
+                  Learners to Enterprises
+                </p>
+                <p className="mt-2 text-sm text-[#06153A]/75">
+                  Students, professionals, entrepreneurs, businesses, and
+                  organizations building digital capability.
+                </p>
+              </Card>
             </div>
 
-            {/* 3 stat tiles — SOLID WHITE with dark text */}
-            <div className="mt-5 border-t border-white/30 pt-4">
-              <div className="grid gap-3 sm:grid-cols-3">
-                <div className="rounded-xl border border-white/30 bg-white p-3 shadow-xl animate-fade-in-up">
-                  <p className="text-2xl font-bold text-[var(--color-brand-blue)]">
-                    {stats.projectsDelivered}
-                  </p>
-                  <p className="mt-1 text-sm text-[#06153A]/80">
-                    {stats.projectsDescription}
-                  </p>
-                </div>
-                <div
-                  className="rounded-xl border border-white/30 bg-white p-3 shadow-xl animate-fade-in-up"
-                  style={{ animationDelay: "50ms" }}
-                >
-                  <p className="text-2xl font-bold text-[var(--color-brand-blue)]">
-                    {stats.serviceAreasCount}
-                  </p>
-                  <p className="mt-1 text-sm text-[#06153A]/80">
-                    {stats.serviceAreasDescription}
-                  </p>
-                </div>
-                <div
-                  className="rounded-xl border border-white/30 bg-white p-3 shadow-xl animate-fade-in-up"
-                  style={{ animationDelay: "100ms" }}
-                >
-                  <p className="text-2xl font-bold text-[var(--color-brand-blue)]">
-                    {stats.approachLabel}
-                  </p>
-                  <p className="mt-1 text-sm text-[#06153A]/80">
-                    {stats.approachDescription}
-                  </p>
-                </div>
+            {/* 3. Three CTA buttons */}
+            <div className="mt-5 flex flex-wrap gap-2">
+              <ButtonLink
+                href="/training"
+                className="!rounded-[var(--radius-cta)] !border !border-[#7BEA24] !bg-[#7BEA24] !px-4 !py-2 !text-sm !font-bold !text-[#06153A] !no-underline shadow-lg transition hover:!border-[#D8F51A] hover:!bg-[#D8F51A]"
+              >
+                Explore Training
+              </ButtonLink>
+              <ButtonLink
+                href="/services"
+                className="!rounded-[var(--radius-cta)] !border !border-[#2ED8F3] !bg-[#2ED8F3] !px-4 !py-2 !text-sm !font-bold !text-[#06153A] !no-underline shadow-lg transition hover:!border-[#6CEEF5] hover:!bg-[#6CEEF5]"
+              >
+                See Software Solutions
+              </ButtonLink>
+              <ButtonLink
+                href="/contact"
+                className="!rounded-[var(--radius-cta)] !border !border-[#D8F51A] !bg-[#D8F51A] !px-4 !py-2 !text-sm !font-bold !text-[#06153A] !no-underline shadow-lg transition hover:!border-[#7BEA24] hover:!bg-[#7BEA24]"
+              >
+                Talk to Us
+              </ButtonLink>
+            </div>
+          </div>
+
+          {/* 4. Stats tiles */}
+          <div className="mt-5 border-t border-white/30 pt-4">
+            <div className="grid gap-3 sm:grid-cols-3">
+              <div className="rounded-xl border border-white/30 bg-white p-3 shadow-xl animate-fade-in-up">
+                <p className="text-2xl font-bold text-[var(--color-brand-blue)]">
+                  {stats.projectsDelivered}
+                </p>
+                <p className="mt-1 text-sm text-[#06153A]/80">
+                  {stats.projectsDescription}
+                </p>
+              </div>
+              <div
+                className="rounded-xl border border-white/30 bg-white p-3 shadow-xl animate-fade-in-up"
+                style={{ animationDelay: "50ms" }}
+              >
+                <p className="text-2xl font-bold text-[var(--color-brand-blue)]">
+                  {stats.serviceAreasCount}
+                </p>
+                <p className="mt-1 text-sm text-[#06153A]/80">
+                  {stats.serviceAreasDescription}
+                </p>
+              </div>
+              <div
+                className="rounded-xl border border-white/30 bg-white p-3 shadow-xl animate-fade-in-up"
+                style={{ animationDelay: "100ms" }}
+              >
+                <p className="text-2xl font-bold text-[var(--color-brand-blue)]">
+                  {stats.approachLabel}
+                </p>
+                <p className="mt-1 text-sm text-[#06153A]/80">
+                  {stats.approachDescription}
+                </p>
               </div>
             </div>
           </div>
@@ -353,7 +323,7 @@ export default async function Home() {
             Training that builds people. Software that builds businesses.
           </h2>
           <p className="mt-2 max-w-3xl text-sm text-foreground/84 md:text-base">
-            JOMI TECHNOLOGIES INSTITUTE operates as both a training institution
+            TechSwiftTrix Agency operates as both a training institution
             and a software and systems provider — delivering practical,
             accessible, and relevant technology education alongside
             enterprise-grade digital solutions.
@@ -365,7 +335,7 @@ export default async function Home() {
                 Training Institute
               </p>
               <h3 className="mt-2 text-lg font-semibold md:text-xl">
-                Computer & Digital Skills Training
+                Computer &amp; Digital Skills Training
               </h3>
               <p className="mt-2 text-sm text-foreground/82">
                 Structured, hands-on training for students, professionals,
@@ -392,10 +362,10 @@ export default async function Home() {
 
             <Card className="home-glass">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-foreground/70">
-                Software & Systems
+                Software &amp; Systems
               </p>
               <h3 className="mt-2 text-lg font-semibold md:text-xl">
-                Software, Systems & Digital Solutions
+                Software, Systems &amp; Digital Solutions
               </h3>
               <p className="mt-2 text-sm text-foreground/82">
                 Custom-built systems and websites for businesses, schools,
@@ -513,8 +483,7 @@ export default async function Home() {
           </h2>
           <p className="mt-2 max-w-3xl text-sm text-foreground/84 md:text-base">
             From individuals taking their first steps in computing, to
-            businesses deploying ERP, CRM, and e-commerce systems — JOMI
-            TECHNOLOGIES INSTITUTE supports every stage of the digital journey.
+            businesses deploying ERP, CRM, and e-commerce systems — TechSwiftTrix Agency supports every stage of the digital journey.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {audiences.map((audience) => (
@@ -572,7 +541,7 @@ export default async function Home() {
         <CtaSection
           className="home-glass"
           title="Ready to build skills, systems, or both?"
-          description="Talk to JOMI TECHNOLOGIES INSTITUTE about training, software, or a combined roadmap across web, mobile, ERP, CRM, and scalable delivery execution."
+          description="Talk to TechSwiftTrix Agency about training, software, or a combined roadmap across web, mobile, ERP, CRM, and scalable delivery execution."
           primaryAction={{ href: "/services", label: "Explore Services" }}
           secondaryAction={{ href: "/contact", label: "Start a Conversation" }}
         />

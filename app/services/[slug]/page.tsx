@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -27,10 +27,10 @@ export async function generateMetadata({
     return createPageMetadata({
       title: "Service",
       description:
-        "Explore software and systems services from JOMI TECHNOLOGIES INSTITUTE — ERP, CRM, e-commerce, POS, school systems, LMS platforms, and custom web and mobile applications.",
+        "Explore software and systems services from TechSwiftTrix Agency — ERP, CRM, e-commerce, POS, school systems, LMS platforms, and custom web and mobile applications.",
       path: `/services/${slug}`,
       keywords: [
-        "JOMI TECHNOLOGIES INSTITUTE services",
+        "TechSwiftTrix Agency services",
         "software services",
         "ERP systems",
         "CRM systems",
@@ -46,7 +46,7 @@ export async function generateMetadata({
     keywords: [
       service.title,
       service.short,
-      "JOMI TECHNOLOGIES INSTITUTE",
+      "TechSwiftTrix Agency",
       ...service.features.slice(0, 4),
     ],
   });

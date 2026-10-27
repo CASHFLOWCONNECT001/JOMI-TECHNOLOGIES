@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { ComponentType, SVGProps } from "react";
 
 import { Container } from "@/components/ui/container";
@@ -192,7 +192,7 @@ export async function SiteFooter() {
         <Reveal from="up" delay={320}>
           <div className="mt-8 flex flex-col gap-3 border-t border-[var(--color-brand-blue)]/24 pt-4 text-xs text-[var(--foreground)]/65 md:flex-row md:items-center md:justify-between">
             <p>
-              © {new Date().getFullYear()} JOMI TECHNOLOGIES INSTITUTE. All
+              © {new Date().getFullYear()} TechSwiftTrix Agency. All
               rights reserved.
             </p>
             <div className="flex flex-wrap gap-4">

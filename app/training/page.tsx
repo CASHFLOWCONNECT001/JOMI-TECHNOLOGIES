@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Container } from "@/components/ui/container";
@@ -12,7 +12,7 @@ import { TRAINING_CATEGORIES, TRAINING_UNITS } from "@/lib/training";
 export const metadata: Metadata = createPageMetadata({
   title: "Training",
   description:
-    "Computer and digital skills training at JOMI TECHNOLOGIES INSTITUTE — computer basics, Microsoft Office, programming, databases, networking, web and mobile development, graphic design, digital marketing, cybersecurity, and self-employment skills.",
+    "Computer and digital skills training at TechSwiftTrix Agency — computer basics, Microsoft Office, programming, databases, networking, web and mobile development, graphic design, digital marketing, cybersecurity, and self-employment skills.",
   path: "/training",
   keywords: [
     "ICT training",
@@ -134,7 +134,7 @@ export default function TrainingPage() {
           </Reveal>
           <Reveal from="up" delay={180} duration={900}>
             <p className="mt-3 max-w-3xl text-foreground/82">
-              Every course at JOMI TECHNOLOGIES INSTITUTE is designed with
+              Every course at TechSwiftTrix Agency is designed with
               two outcomes in mind: competence, and income. Whether you want
               a job, a side income, or to build your own IT business — our
               training gets you there with hands-on, workplace-ready skills.
