@@ -11,25 +11,30 @@ const MESSAGES = [
 
 export function AnnouncementTicker() {
   return (
-    <div className="announcement-ticker" role="region" aria-label="About TechSwiftTrix Agency">
-      {/* LED indicator */}
-      <span aria-hidden className="ticker-led" />
+    <div
+      className="announcement-ticker"
+      role="region"
+      aria-label="About TechSwiftTrix Agency"
+    >
+      {/* Status dot */}
+      <span aria-hidden="true" className="ticker-dot" />
 
-      {/* Scrolling track */}
+      {/* Scrolling viewport */}
       <div className="ticker-viewport">
         <div className="ticker-track">
-          {MESSAGES.map((msg, i) => (
-            <span key={i} className="ticker-item">
-              {msg}
-              <span aria-hidden className="ticker-sep">•</span>
-            </span>
-          ))}
-          {/* duplicate for seamless loop */}
-          {MESSAGES.map((msg, i) => (
-            <span key={`dup-${i}`} className="ticker-item" aria-hidden>
-              {msg}
-              <span aria-hidden className="ticker-sep">•</span>
-            </span>
+          {[0, 1].map((group) => (
+            <div
+              className="ticker-group"
+              key={group}
+              aria-hidden={group === 1 || undefined}
+            >
+              {MESSAGES.map((msg, i) => (
+                <span className="ticker-item" key={i}>
+                  {msg}
+                  <span aria-hidden="true" className="ticker-sep" />
+                </span>
+              ))}
+            </div>
           ))}
         </div>
       </div>
@@ -40,115 +45,109 @@ export function AnnouncementTicker() {
           display: flex;
           align-items: center;
           width: 100%;
-          height: 34px;
+          height: 38px;
           overflow: hidden;
-          background: linear-gradient(
-            90deg,
-            var(--color-brand-blue) 0%,
-            var(--color-brand-cyan) 100%
-          );
-          color: #001026;
-          font-size: 12px;
-          font-weight: 600;
-          letter-spacing: 0.02em;
+          background: #ffffff;
+          color: #1a1a1a;
+          font-size: 13px;
+          font-weight: 500;
+          letter-spacing: 0.005em;
+          line-height: 1;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.10);
         }
 
-        /* Subtle scanlines so it reads like an LED strip */
-        .announcement-ticker::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          background-image: repeating-linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.05) 0px,
-            rgba(255, 255, 255, 0.05) 1px,
-            transparent 1px,
-            transparent 3px
-          );
-          z-index: 2;
-        }
-
-        /* Left + right fade masks */
-        .announcement-ticker::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          z-index: 2;
-          background: linear-gradient(
-            90deg,
-            color-mix(in oklab, var(--color-brand-blue) 90%, transparent) 0%,
-            transparent 8%,
-            transparent 92%,
-            color-mix(in oklab, var(--color-brand-cyan) 90%, transparent) 100%
-          );
-        }
-
-        .ticker-led {
+        .ticker-dot {
           position: relative;
           z-index: 3;
           flex-shrink: 0;
-          width: 8px;
-          height: 8px;
+          width: 6px;
+          height: 6px;
           margin-left: 14px;
           margin-right: 12px;
           border-radius: 9999px;
-          background: #001026;
-          box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-          animation: ticker-led-blink 1.2s steps(2, end) infinite;
-        }
-
-        @keyframes ticker-led-blink {
-          0%, 100% { opacity: 1; }
-          50%      { opacity: 0.35; }
+          background: #0891b2;
+          box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.16);
         }
 
         .ticker-viewport {
           position: relative;
           z-index: 3;
           flex: 1;
+          min-width: 0;
           overflow: hidden;
           white-space: nowrap;
           height: 100%;
           display: flex;
           align-items: center;
+          -webkit-mask-image: linear-gradient(
+            90deg,
+            transparent 0,
+            #000 28px,
+            #000 calc(100% - 44px),
+            transparent 100%
+          );
+          mask-image: linear-gradient(
+            90deg,
+            transparent 0,
+            #000 28px,
+            #000 calc(100% - 44px),
+            transparent 100%
+          );
         }
 
         .ticker-track {
-          display: inline-flex;
-          align-items: center;
-          gap: 40px;
-          padding-left: 0;
-          animation: ticker-scroll 60s linear infinite;
+          display: flex;
+          width: max-content;
+          animation: ticker-scroll 65s linear infinite;
           will-change: transform;
         }
 
-        .announcement-ticker:hover .ticker-track {
+        .ticker-group {
+          display: flex;
+          flex: 0 0 auto;
+          align-items: center;
+        }
+
+        .announcement-ticker:hover .ticker-track,
+        .announcement-ticker:focus-within .ticker-track {
           animation-play-state: paused;
         }
 
         .ticker-item {
           display: inline-flex;
           align-items: center;
-          gap: 40px;
           white-space: nowrap;
         }
 
         .ticker-sep {
-          opacity: 0.55;
-          font-size: 14px;
-          margin-left: 40px;
+          flex-shrink: 0;
+          width: 3px;
+          height: 3px;
+          margin: 0 30px;
+          border-radius: 9999px;
+          background: currentColor;
+          opacity: 0.3;
         }
 
         @keyframes ticker-scroll {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
+          from { transform: translate3d(0, 0, 0); }
+          to   { transform: translate3d(-50%, 0, 0); }
+        }
+
+        @media (max-width: 640px) {
+          .announcement-ticker { height: 34px; font-size: 12px; }
+          .ticker-sep { margin: 0 20px; }
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .ticker-track { animation: none; }
-          .ticker-led   { animation: none; }
+          .ticker-track { animation: none; transform: none; }
+          .ticker-viewport {
+            overflow-x: auto;
+            -webkit-mask-image: none;
+            mask-image: none;
+            scrollbar-width: none;
+          }
+          .ticker-viewport::-webkit-scrollbar { display: none; }
         }
       `}</style>
     </div>

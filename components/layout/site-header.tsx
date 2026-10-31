@@ -163,7 +163,7 @@ export function SiteHeader() {
       </Container>
 
       {/* ================================================================ */}
-      {/* RUNNING TICKER — blue strip, scrolling institute + USP messages  */}
+      {/* RUNNING TICKER — white strip, scrolling institute + USP messages */}
       {/* ================================================================ */}
       <div
         className="announcement-ticker"
@@ -313,40 +313,21 @@ export function SiteHeader() {
         }
 
         /* ============================================================ */
-        /* ANNOUNCEMENT TICKER — BLUE RUNNING STRIP                     */
+        /* ANNOUNCEMENT TICKER — WHITE INFO STRIP                        */
         /* ============================================================ */
         .announcement-ticker {
           position: relative;
           display: flex;
           align-items: center;
           width: 100%;
-          height: 34px;
+          height: 38px;
           overflow: hidden;
-          background: linear-gradient(
-            90deg,
-            var(--color-brand-blue) 0%,
-            var(--color-brand-cyan) 100%
-          );
-          color: #001026;
-          font-size: 12px;
-          font-weight: 600;
-          letter-spacing: 0.02em;
-        }
-
-        /* Subtle LED scanlines */
-        .announcement-ticker::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          background-image: repeating-linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.05) 0px,
-            rgba(255, 255, 255, 0.05) 1px,
-            transparent 1px,
-            transparent 3px
-          );
-          z-index: 2;
+          background: #ffffff;
+          color: #1a1a1a;
+          font-size: 13px;
+          font-weight: 500;
+          letter-spacing: 0.005em;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.10);
         }
 
         /* Soft fade at the left + right edges */
@@ -358,10 +339,10 @@ export function SiteHeader() {
           z-index: 2;
           background: linear-gradient(
             90deg,
-            color-mix(in oklab, var(--color-brand-blue) 90%, transparent) 0%,
+            #ffffff 0%,
             transparent 6%,
             transparent 94%,
-            color-mix(in oklab, var(--color-brand-cyan) 90%, transparent) 100%
+            #ffffff 100%
           );
         }
 
@@ -369,18 +350,13 @@ export function SiteHeader() {
           position: relative;
           z-index: 3;
           flex-shrink: 0;
-          width: 8px;
-          height: 8px;
+          width: 6px;
+          height: 6px;
           margin-left: 14px;
           margin-right: 12px;
           border-radius: 9999px;
-          background: #001026;
-          box-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
-          animation: ticker-led-blink 1.2s steps(2, end) infinite;
-        }
-        @keyframes ticker-led-blink {
-          0%, 100% { opacity: 1; }
-          50%      { opacity: 0.35; }
+          background: #0891b2;
+          box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.16);
         }
 
         .ticker-viewport {
@@ -402,7 +378,8 @@ export function SiteHeader() {
           will-change: transform;
         }
 
-        .announcement-ticker:hover .ticker-track {
+        .announcement-ticker:hover .ticker-track,
+        .announcement-ticker:focus-within .ticker-track {
           animation-play-state: paused;
         }
 
@@ -430,8 +407,7 @@ export function SiteHeader() {
         @media (prefers-reduced-motion: reduce) {
           .header-glow-line,
           .mobile-menu-item,
-          .ticker-track,
-          .ticker-led {
+          .ticker-track {
             animation: none !important;
           }
           .mobile-menu-item {
