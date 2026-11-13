@@ -14,7 +14,8 @@ export default function BloomPathPrivacy() {
         <header className="text-center mb-10 pb-5 border-b-2 border-[#F3E5F0]">
           <div className="text-5xl mb-2.5">🌸</div>
           <h1 className="text-[#4A3A45] text-3xl md:text-4xl font-extrabold m-0 mb-2.5">Privacy Policy</h1>
-          <div className="text-[#9A8A93] text-sm font-medium">Last Updated: May 2024</div>
+          {/* UPDATED DATE */}
+          <div className="text-[#9A8A93] text-sm font-medium">Last Updated: November 13, 2026</div>
         </header>
 
         <p className="mb-4 text-base">
@@ -80,7 +81,8 @@ export default function BloomPathPrivacy() {
 
         {/* Footer */}
         <footer className="text-center mt-10 pt-5 border-t border-[#F3E5F0] text-[#9A8A93] text-sm">
-          &copy; 2024 TechSwiftTrix Agency. All rights reserved.<br />
+          {/* UPDATED COPYRIGHT YEAR */}
+          &copy; 2026 TechSwiftTrix Agency. All rights reserved.<br />
           Bloom Path v1.0.0
         </footer>
         
