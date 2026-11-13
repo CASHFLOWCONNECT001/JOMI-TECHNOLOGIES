@@ -208,6 +208,14 @@ export async function SiteFooter() {
               <Link href="/contact" className="footer-link-sm">
                 Start a Project
               </Link>
+              
+              {/* --- NEW PRIVACY LINKS --- */}
+              <Link href="/calculatorprivacy" className="footer-link-sm">
+                TST Calculator Privacy
+              </Link>
+              <Link href="/bloompathprivacy" className="footer-link-sm">
+                Bloom Path Privacy
+              </Link>
             </div>
           </div>
         </Reveal>
